@@ -1,7 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+// import Code from '@/components/Code';
 import CustomLink from '@/components/CustomLink';
+import { H1, H2, H3, H4 } from '@/components/Heading';
+import Img from '@/components/Image';
 import Layout from '@/components/Layout';
+import P from '@/components/Paragraph';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -9,20 +13,21 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
 // @ts-ignore
 import renderToString from 'next-mdx-remote/render-to-string';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import Link from 'next/link';
 
-// Custom components/renderers to pass to MDX.
-// Since the MDX files aren't loaded by webpack, they have no knowledge of how
-// to handle import statements. Instead, you must include components in scope
-// here.
+const Code = dynamic(() => import('../../components/Code'));
+
 const components = {
   a: CustomLink,
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  // TestComponent: dynamic(() => import('../../components/TestComponent')),
+  p: P,
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  h4: H4,
+  img: Img,
+  Img: Img,
+  code: Code,
   Head,
 };
 
@@ -30,33 +35,22 @@ const PostPage = ({ source, frontMatter }: any) => {
   const content = hydrate(source, { components });
   return (
     <Layout>
-      <header>
-        <nav>
-          <Link href="/">
-            <a>👈 Go back home</a>
-          </Link>
-        </nav>
-      </header>
-      <div className="post-header">
-        <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
-        )}
+      <div>
+        <h1 className="text-4xl font-black tracking-wide text-center text-gray-900 md:text-5xl">
+          {frontMatter.title}
+        </h1>
+        <div className="flex flex-row justify-center p-1 ">
+          {frontMatter.tags.map((tag: string) => (
+            <div key={tag} className="mr-2 text-sm text-gray-600">
+              <span className="text-opacity-50">#</span>
+              {tag}
+            </div>
+          ))}
+        </div>
       </div>
-      <main>{content}</main>
-
-      <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
-
-        .post-header {
-          margin-bottom: 2rem;
-        }
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
+      <main className="w-full px-2 py-4 mx-auto mt-3 bg-white border border-gray-400 rounded-lg md:p-4 sm:py-3">
+        {content}
+      </main>
     </Layout>
   );
 };

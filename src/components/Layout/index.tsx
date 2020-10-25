@@ -16,8 +16,8 @@ const Layout = ({ children }: any) => {
           </nav>
         </div>
       </header>
-      <main className="flex justify-center mt-5 md:mt-10">
-        <div className="w-full px-4 md:px-0 md:w-2/5">{children}</div>
+      <main className="flex justify-center my-5 md:mt-10">
+        <div className="w-full px-4 md:px-0 md:w-3/5">{children}</div>
       </main>
       <footer className="w-full p-4 mt-auto text-center text-gray-100 bg-gray-900 shadow ">
         <small>© 2020 DuGlaser</small>
