@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function CustomLink({ as, href, ...otherProps }: any) {
+const CustomLink = ({ as, href, ...otherProps }: any) => {
   return (
     <>
       <Link as={as} href={href}>
@@ -13,4 +13,6 @@ export default function CustomLink({ as, href, ...otherProps }: any) {
       `}</style>
     </>
   );
-}
+};
+
+export default CustomLink;
