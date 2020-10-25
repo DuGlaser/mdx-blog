@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils';
 
 const Index = ({ posts }: any) => {
   return (
