@@ -1,10 +1,15 @@
 import Link from 'next/link';
 
-const CustomLink = ({ as, href, ...otherProps }: any) => {
+interface Props {
+  as?: string;
+  href: string;
+}
+
+const CustomLink: React.FC<Props> = ({ as, href, children }) => {
   return (
     <>
       <Link as={as} href={href}>
-        <a {...otherProps} />
+        <a>{children}</a>
       </Link>
       <style jsx>{`
         a {
