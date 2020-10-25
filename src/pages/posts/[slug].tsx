@@ -1,6 +1,8 @@
 import fs from 'fs'
 import matter from 'gray-matter'
+// @ts-ignore
 import hydrate from 'next-mdx-remote/hydrate'
+// @ts-ignore
 import renderToString from 'next-mdx-remote/render-to-string'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
@@ -23,7 +25,7 @@ const components = {
   Head,
 }
 
-export default function PostPage({ source, frontMatter }) {
+export default function PostPage({ source, frontMatter }: any) {
   const content = hydrate(source, { components })
   return (
     <Layout>
@@ -58,7 +60,7 @@ export default function PostPage({ source, frontMatter }) {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: any) => {
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
   const source = fs.readFileSync(postFilePath)
 

@@ -5,7 +5,7 @@ import path from 'path';
 import Layout from '../components/Layout';
 import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils';
 
-export default function Index({ posts }) {
+export default function Index({ posts }: any) {
   return (
     <Layout>
       <h1>Home Page</h1>
@@ -14,7 +14,7 @@ export default function Index({ posts }) {
         <code>next-mdx-remote</code>.
       </p>
       <ul>
-        {posts.map((post) => (
+        {posts.map((post: any) => (
           <li key={post.filePath}>
             <Link
               as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
