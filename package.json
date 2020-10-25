@@ -5,7 +5,8 @@
     "dev": "next",
     "dev:watch": "next-remote-watch ./posts",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
