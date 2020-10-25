@@ -9,7 +9,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
 // @ts-ignore
 import renderToString from 'next-mdx-remote/render-to-string';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 
