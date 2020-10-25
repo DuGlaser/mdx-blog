@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Layout from '@/components/Layout';
-import PostItem from '@/components/postItem';
+import PostItem from '@/components/PostItem';
 import { Post } from '@/types/post';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
