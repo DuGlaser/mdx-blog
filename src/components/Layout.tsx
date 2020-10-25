@@ -1,50 +1,28 @@
+import Link from 'next/link';
+
 const Layout = ({ children }: any) => {
   return (
-    <>
-      <div className="wrapper">{children}</div>
-      <style jsx>{`
-        .wrapper {
-          max-width: 36rem;
-          margin: 0 auto;
-          padding: 1.5rem;
-        }
-      `}</style>
-      <style jsx global>{`
-        * {
-          margin: 0;
-          padding: 0;
-        }
-
-        :root {
-          --site-color: royalblue;
-          --divider-color: rgba(0, 0, 0, 0.4);
-        }
-
-        html {
-          font: 100%/1.5 system-ui;
-        }
-
-        a {
-          color: inherit;
-          text-decoration-color: var(--divider-color);
-          text-decoration-thickness: 2px;
-        }
-
-        a:hover {
-          color: var(--site-color);
-          text-decoration-color: currentcolor;
-        }
-
-        h1,
-        p {
-          margin-bottom: 1.5rem;
-        }
-
-        code {
-          font-family: 'Menlo';
-        }
-      `}</style>
-    </>
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      <header className="w-full text-gray-100 bg-gray-900 shadow body-font">
+        <div className="container flex flex-col flex-wrap items-center justify-between p-5 mx-auto md:flex-row">
+          <h1 className="text-xl font-black text-white">永遠にWIP</h1>
+          <nav className="flex mt-3 md:mt-0">
+            <Link href="/about">
+              <a className="mr-10">ABOUT</a>
+            </Link>
+            <Link href="/">
+              <a>BLOG</a>
+            </Link>
+          </nav>
+        </div>
+      </header>
+      <main className="flex justify-center mt-5 md:mt-10">
+        <div className="w-full px-4 md:px-0 md:w-2/5">{children}</div>
+      </main>
+      <footer className="w-full p-4 mt-auto text-center text-gray-100 bg-gray-900 shadow ">
+        <small>© 2020 DuGlaser</small>
+      </footer>
+    </div>
   );
 };
 
