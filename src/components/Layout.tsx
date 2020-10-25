@@ -1,4 +1,4 @@
-export default function Layout({ children }: any) {
+const Layout = ({ children }: any) => {
   return (
     <>
       <div className="wrapper">{children}</div>
@@ -45,5 +45,7 @@ export default function Layout({ children }: any) {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
+
+export default Layout;

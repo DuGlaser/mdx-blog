@@ -1,4 +1,4 @@
-export default function TestComponent({ name = 'world' }: any) {
+const TestComponent = ({ name = 'world' }: any) => {
   return (
     <>
       <div>Hello, {name}!</div>
@@ -12,5 +12,7 @@ export default function TestComponent({ name = 'world' }: any) {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
+
+export default TestComponent;

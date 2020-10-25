@@ -1,11 +1,12 @@
 import fs from 'fs';
-import matter from 'gray-matter';
-import Link from 'next/link';
 import path from 'path';
+import matter from 'gray-matter';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils';
 
-export default function Index({ posts }: any) {
+const Index = ({ posts }: any) => {
   return (
     <Layout>
       <h1>Home Page</h1>
@@ -27,9 +28,9 @@ export default function Index({ posts }: any) {
       </ul>
     </Layout>
   );
-}
+};
 
-export function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
     const { content, data } = matter(source);
@@ -42,4 +43,6 @@ export function getStaticProps() {
   });
 
   return { props: { posts } };
-}
+};
+
+export default Index;
