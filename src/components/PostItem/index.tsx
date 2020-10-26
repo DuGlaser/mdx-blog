@@ -14,7 +14,9 @@ const PostItem: React.FC<Props> = ({ post }) => {
       >
         <div>
           <h2 className="mb-2 text-2xl font-bold hover:text-blue-600 leading-7">
-            <a>{post.data.title}</a>
+            <a href={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}>
+              {post.data.title}
+            </a>
           </h2>
           <div className="mb-2">
             <div className="flex flex-row p-1 ">
