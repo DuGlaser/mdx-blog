@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import fs from 'fs';
 import path from 'path';
-// import Code from '@/components/Code';
+import Code from '@/components/Code';
 import CustomLink from '@/components/CustomLink';
 import { H1, H2, H3, H4 } from '@/components/Heading';
 import Img from '@/components/Image';
@@ -15,8 +16,6 @@ import hydrate from 'next-mdx-remote/hydrate';
 import renderToString from 'next-mdx-remote/render-to-string';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-
-const Code = dynamic(() => import('../../components/Code'));
 
 const components = {
   a: CustomLink,

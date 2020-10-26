@@ -8,6 +8,7 @@ interface Props {
 
 const Code: React.FC<Props> = ({ className, children }) => {
   const language = className.replace('language-', '');
+  const content = children?.toString().trim();
   return (
     <div className="my-5">
       <SyntaxHighlighter
@@ -16,7 +17,7 @@ const Code: React.FC<Props> = ({ className, children }) => {
         language={language}
         style={nord}
       >
-        {children}
+        {content}
       </SyntaxHighlighter>
     </div>
   );
