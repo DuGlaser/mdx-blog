@@ -7,7 +7,7 @@ import { generateRss } from '@/utils/rssUtils';
 import matter from 'gray-matter';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function feed(req: NextApiRequest, res: NextApiResponse) {
+export default async function feed(_: NextApiRequest, res: NextApiResponse) {
   const posts: Post[] = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
     const { content, data } = matter(source);
