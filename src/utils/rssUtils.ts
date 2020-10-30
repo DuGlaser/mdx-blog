@@ -2,12 +2,12 @@ import { Post } from '@/types/post';
 
 const generateRssItem = (post: Post) => {
   return `<item>
-    <guid>https://emilioschepis.com/posts/${post.filePath.replace(
+    <guid>https://duglaser.dev/posts/${post.filePath.replace(
       /\.mdx?$/,
       ''
     )}</guid>
     <title>${post.data.title}</title>
-    <link>https://emilioschepis.com/posts/${post.filePath.replace(
+    <link>https://duglaser.dev/posts/${post.filePath.replace(
       /\.mdx?$/,
       ''
     )}</link>
