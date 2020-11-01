@@ -16,7 +16,7 @@ export const H2: React.FC = ({ children }) => {
 
 export const H3: React.FC = ({ children }) => {
   return (
-    <h3 className="mb-1 mt-10 text-xl font-black text-gray-900 md:text-2xl">
+    <h3 className="mt-10 mb-1 text-xl font-black text-gray-900 md:text-2xl">
       {children}
     </h3>
   );
