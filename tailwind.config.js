@@ -7,7 +7,18 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx}',
   ],
-  theme: {},
+  theme: {
+    fontFamily: {
+      body: [
+        'Helvetica Neue',
+        'Arial',
+        'Hiragino Kaku Gothic ProN',
+        'Hiragino Sans',
+        'Meiryo',
+        'sans-serif',
+      ],
+    },
+  },
   variants: {},
   plugins: [],
 };
