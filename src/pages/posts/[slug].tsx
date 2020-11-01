@@ -46,7 +46,7 @@ const PostPage = ({ source, frontMatter }: any) => {
           ))}
         </div>
       </div>
-      <main className="w-full px-2 py-4 mx-auto mt-3 bg-white border border-gray-400 rounded-lg md:p-4 sm:py-3">
+      <main className="w-full px-2 pb-4 mx-auto mt-3 bg-white border border-gray-400 rounded-lg md:px-4 md:pb-4 sm:pb-3">
         {content}
       </main>
     </Layout>
