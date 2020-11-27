@@ -1,6 +1,12 @@
 import Head from 'next/head';
 import React, { useEffect } from 'react';
 
+declare global {
+  interface Window {
+    iframely: any;
+  }
+}
+
 const Iframely: React.FC = () => {
   useEffect(() => {
     if (window && window.iframely) {
