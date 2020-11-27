@@ -3,7 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import Code from '@/components/Code';
 import CustomLink from '@/components/CustomLink';
+import Embed from '@/components/Embed';
 import { H1, H2, H3, H4 } from '@/components/Heading';
+import Iframely from '@/components/Iframely';
 import Img from '@/components/Image';
 import Layout from '@/components/Layout';
 import P from '@/components/Paragraph';
@@ -26,6 +28,7 @@ const components = {
   img: Img,
   Img: Img,
   code: Code,
+  Embed: Embed,
   Head,
 };
 
@@ -33,6 +36,7 @@ const PostPage = ({ source, frontMatter }: any) => {
   const content = hydrate(source, { components });
   return (
     <Layout>
+      <Iframely />
       <div>
         <h1 className="text-4xl font-black tracking-wide text-center text-gray-900 md:text-5xl">
           {frontMatter.title}
