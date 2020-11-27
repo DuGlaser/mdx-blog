@@ -5,9 +5,11 @@
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */
-
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
 
 /* Your own custom utilities */
+main > h2:first-child {
+  margin-top: 1rem;
+}
