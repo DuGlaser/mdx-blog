@@ -10,7 +10,12 @@ const First: React.FC<Props> = (props) => {
   if (type === 'CustomButton') {
     return (
       <button
-        className="px-4 py-2 mb-3 font-semibold bg-transparent border rounded text-blue-dark"
+        style={{
+          marginBottom: '1rem',
+          border: '2px solid #ccc',
+          borderRadius: '4px',
+          padding: '4px 8px',
+        }}
         onClick={() => alert('CustomButton')}
       >
         CustomButton
