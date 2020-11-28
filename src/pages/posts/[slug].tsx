@@ -17,7 +17,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
 // @ts-ignore
 import renderToString from 'next-mdx-remote/render-to-string';
-import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
