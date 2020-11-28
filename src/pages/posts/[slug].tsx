@@ -9,6 +9,7 @@ import Iframely from '@/components/Iframely';
 import Img from '@/components/Image';
 import Layout from '@/components/Layout';
 import P from '@/components/Paragraph';
+import Share from '@/components/Share';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -16,7 +17,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
 // @ts-ignore
 import renderToString from 'next-mdx-remote/render-to-string';
+import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 
 const components = {
   a: CustomLink,
@@ -34,6 +37,13 @@ const components = {
 
 const PostPage = ({ source, frontMatter }: any) => {
   const content = hydrate(source, { components });
+  const [shareUrl, setShareUrl] = useState('');
+  useEffect(() => {
+    if (window) {
+      setShareUrl(window.location.href);
+    }
+  }, []);
+
   return (
     <Layout>
       <Iframely />
@@ -53,6 +63,7 @@ const PostPage = ({ source, frontMatter }: any) => {
       <main className="w-full px-2 pb-4 mx-auto mt-3 bg-white border border-gray-400 rounded-lg md:px-4 md:pb-4 sm:pb-3">
         {content}
       </main>
+      <Share url={shareUrl} />
     </Layout>
   );
 };
