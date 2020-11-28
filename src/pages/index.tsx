@@ -7,6 +7,7 @@ import { Post } from '@/types/post';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
+import { config } from 'site.config';
 
 interface Props {
   posts: Post[];
@@ -15,7 +16,7 @@ interface Props {
 const Index: NextPage<Props> = ({ posts }) => {
   return (
     <Layout>
-      <PageSEO path={''} />
+      <PageSEO path={''} description={config.meta.description} />
       <ul>
         {posts.map((post) => (
           <PostItem key={post.filePath} post={post} />

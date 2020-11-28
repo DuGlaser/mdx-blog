@@ -1,6 +1,7 @@
 export const config = {
   meta: {
     title: '永遠にWIP',
+    description: '永遠にWIP',
   },
   root:
     process.env.NODE_ENV === 'production'
