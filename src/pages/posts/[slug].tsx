@@ -8,17 +8,19 @@ import { H1, H2, H3, H4 } from '@/components/Heading';
 import Iframely from '@/components/Iframely';
 import Img from '@/components/Image';
 import Layout from '@/components/Layout';
+import PageSEO from '@/components/PageSEO';
 import P from '@/components/Paragraph';
 import Share from '@/components/Share';
+import { FrontMatter } from '@/types/frontmatter';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 // @ts-ignore
 import hydrate from 'next-mdx-remote/hydrate';
 // @ts-ignore
 import renderToString from 'next-mdx-remote/render-to-string';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { config } from 'site.config';
 
 const components = {
   a: CustomLink,
@@ -34,17 +36,25 @@ const components = {
   Head,
 };
 
-const PostPage = ({ source, frontMatter }: any) => {
+interface Props {
+  postName: string;
+  frontMatter: FrontMatter;
+  source: any;
+}
+
+const PostPage: NextPage<Props> = (props) => {
+  const { postName, frontMatter, source } = props;
+
   const content = hydrate(source, { components });
-  const [shareUrl, setShareUrl] = useState('');
-  useEffect(() => {
-    if (window) {
-      setShareUrl(window.location.href);
-    }
-  }, []);
+  const pageUrl = `/posts/${postName}`;
 
   return (
     <Layout>
+      <PageSEO
+        path={pageUrl}
+        title={frontMatter.title}
+        description={frontMatter.description}
+      />
       <Iframely />
       <div>
         <h1 className="text-4xl font-black tracking-wide text-center text-gray-900 md:text-5xl">
@@ -62,7 +72,7 @@ const PostPage = ({ source, frontMatter }: any) => {
       <main className="w-full px-6 py-6 mx-auto mt-3 bg-white border border-white rounded-lg md:px-8 md:py-10">
         {content}
       </main>
-      <Share url={shareUrl} />
+      <Share url={config.root + pageUrl} title={frontMatter.title} />
     </Layout>
   );
 };
@@ -85,6 +95,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
   return {
     props: {
+      postName: params.slug,
       source: mdxSource,
       frontMatter: data,
     },
