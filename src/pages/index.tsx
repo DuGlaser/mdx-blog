@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Layout from '@/components/Layout';
+import PageSEO from '@/components/PageSEO';
 import PostItem from '@/components/PostItem';
 import { Post } from '@/types/post';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
@@ -14,6 +15,7 @@ interface Props {
 const Index: NextPage<Props> = ({ posts }) => {
   return (
     <Layout>
+      <PageSEO path={''} />
       <ul>
         {posts.map((post) => (
           <PostItem key={post.filePath} post={post} />
