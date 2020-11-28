@@ -10,6 +10,7 @@ import Img from '@/components/Image';
 import Layout from '@/components/Layout';
 import P from '@/components/Paragraph';
 import Share from '@/components/Share';
+import { importMdxComponent } from '@/utils/importMdxComponent';
 import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -20,7 +21,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
-const components = {
+const baseComponents = {
   a: CustomLink,
   p: P,
   h1: H1,
@@ -34,7 +35,8 @@ const components = {
   Head,
 };
 
-const PostPage = ({ source, frontMatter }: any) => {
+const PostPage = ({ postName, source, frontMatter }: any) => {
+  const components = importMdxComponent(baseComponents, postName);
   const content = hydrate(source, { components });
   const [shareUrl, setShareUrl] = useState('');
   useEffect(() => {
@@ -68,11 +70,13 @@ const PostPage = ({ source, frontMatter }: any) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
+  const postFilePath = path.join(POSTS_PATH, `${params.slug}/index.mdx`);
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
 
+  const components = importMdxComponent(baseComponents, params.slug);
+  console.log(components);
   const mdxSource = await renderToString(content, {
     components,
     // Optionally pass remark/rehype plugins
@@ -85,6 +89,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
   return {
     props: {
+      postName: params.slug,
       source: mdxSource,
       frontMatter: data,
     },
