@@ -25,6 +25,7 @@ const PageSEO: React.FC<Props> = (props) => {
           <meta property="og:description" content={description} />
         </>
       )}
+      <link rel="canonical" href={pageUrl} />
     </Head>
   );
 };
