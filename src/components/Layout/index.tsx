@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Layout = ({ children }: any) => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen bg-gray-200">
       <header className="w-full text-gray-100 bg-gray-900 shadow body-font">
         <div className="container flex flex-col flex-wrap items-center justify-between p-5 mx-auto md:flex-row">
           <h1 className="text-xl font-black text-white">

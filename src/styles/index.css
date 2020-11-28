@@ -11,7 +11,7 @@
 
 /* Your own custom utilities */
 main > h2:first-child {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .title {
