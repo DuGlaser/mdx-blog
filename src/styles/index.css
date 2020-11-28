@@ -13,3 +13,7 @@
 main > h2:first-child {
   margin-top: 1rem;
 }
+
+.title {
+  border-bottom: 1px solid #ccc;
+}
