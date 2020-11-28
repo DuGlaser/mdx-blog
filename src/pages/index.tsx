@@ -25,7 +25,9 @@ const Index: NextPage<Props> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const source = fs.readFileSync(
+      path.join(POSTS_PATH, `${filePath}/index.mdx`)
+    );
     const { content, data } = matter(source);
 
     return {
