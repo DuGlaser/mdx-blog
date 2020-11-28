@@ -19,7 +19,7 @@ const PageSEO: React.FC<Props> = (props) => {
       <meta property="og:url" content={pageUrl} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:site" content={config.meta.title} />
-      {description && (
+      {!!description && (
         <>
           <meta name="description" content={description} />
           <meta property="og:description" content={description} />
