@@ -48,6 +48,11 @@ const PostPage: NextPage<Props> = (props) => {
   const content = hydrate(source, { components });
   const pageUrl = `/posts/${postName}`;
 
+  const date = new Date(frontMatter.pubDate);
+  const day = date.getUTCDate();
+  const month = date.getUTCMonth() + 1;
+  const year = date.getUTCFullYear();
+
   return (
     <Layout>
       <PageSEO
@@ -60,6 +65,9 @@ const PostPage: NextPage<Props> = (props) => {
         <h1 className="text-4xl font-black tracking-wide text-center text-gray-900 md:text-5xl">
           {frontMatter.title}
         </h1>
+        <div className="flex flex-row justify-center m-1 text-sm text-gray-600">
+          {year}/{month}/{day}
+        </div>
         <div className="flex flex-row justify-center p-1 ">
           {frontMatter.tags.map((tag: string) => (
             <div key={tag} className="mr-2 text-sm text-gray-600">
