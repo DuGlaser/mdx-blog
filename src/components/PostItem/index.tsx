@@ -6,6 +6,11 @@ interface Props {
 }
 
 const PostItem: React.FC<Props> = ({ post }) => {
+  const date = new Date(post.data.pubDate);
+  const day = date.getUTCDate();
+  const month = date.getUTCMonth() + 1;
+  const year = date.getUTCFullYear();
+
   return (
     <li className="w-full px-2 py-4 mx-auto mt-3 bg-white border border-white rounded-lg cursor-pointer md:p-4 sm:py-3">
       <Link
@@ -18,6 +23,9 @@ const PostItem: React.FC<Props> = ({ post }) => {
               {post.data.title}
             </a>
           </h2>
+          <p className="m-1 text-sm text-gray-600">
+            {year}/{month}/{day}
+          </p>
           <div className="mb-2">
             <div className="flex flex-row p-1 ">
               {post.data.tags.map((tag: string) => (
@@ -28,7 +36,7 @@ const PostItem: React.FC<Props> = ({ post }) => {
               ))}
             </div>
           </div>
-          <a>{post.data.description}</a>
+          <a className="m-1">{post.data.description}</a>
         </div>
       </Link>
     </li>
