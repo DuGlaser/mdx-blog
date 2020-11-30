@@ -9,7 +9,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <script src="//cdn.iframe.ly/embed.js?iframe=1&omit_script=1"></script>
+        </Head>
         <body className="font-body">
           <Main />
           <NextScript />

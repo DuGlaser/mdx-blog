@@ -7,7 +7,7 @@ interface Props {
 
 const Embed: React.FC<Props> = (props) => {
   const html = props.html;
-  return <React.Fragment>{parse(html)}</React.Fragment>;
+  return <div className="my-3">{parse(html)}</div>;
 };
 
 export default Embed;

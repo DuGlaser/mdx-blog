@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import Code from '@/components/Code';
 import CustomLink from '@/components/CustomLink';
-import Embed from '@/components/Embed';
 import { H1, H2, H3, H4 } from '@/components/Heading';
 import Iframely from '@/components/Iframely';
 import Img from '@/components/Image';
@@ -32,7 +31,7 @@ const components = {
   img: Img,
   Img: Img,
   code: Code,
-  Embed: Embed,
+  Iframely: Iframely,
   Head,
 };
 
@@ -60,7 +59,6 @@ const PostPage: NextPage<Props> = (props) => {
         title={frontMatter.title}
         description={frontMatter.description}
       />
-      <Iframely />
       <div>
         <h1 className="text-4xl font-black tracking-wide text-center text-gray-900 md:text-5xl">
           {frontMatter.title}

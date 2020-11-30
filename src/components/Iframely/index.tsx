@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import React, { useEffect } from 'react';
+import Embed from '../Embed';
 
 declare global {
   interface Window {
@@ -7,23 +7,18 @@ declare global {
   }
 }
 
-const Iframely: React.FC = () => {
+interface Props {
+  html: string;
+}
+
+const Iframely: React.FC<Props> = (props) => {
   useEffect(() => {
-    if (window && window.iframely) {
+    if (window.iframely) {
       window.iframely.load();
     }
   }, []);
 
-  return (
-    <React.Fragment>
-      <Head>
-        <script
-          src="//cdn.iframe.ly/embed.js?iframe=1&omit_script=1"
-          async
-        ></script>
-      </Head>
-    </React.Fragment>
-  );
+  return <Embed html={props.html} />;
 };
 
 export default Iframely;
