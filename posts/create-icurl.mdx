@@ -1,0 +1,54 @@
+---
+title: icurlというツールを作った
+description: icurlというツールを作ったお話
+tags: ['CLI','GO']
+pubDate: "2020-12-01T23:48:10.752Z"
+---
+
+## はじめに
+こんにちはダメガネです。
+この記事は[IPFactoryアドベントカレンダー2020](https://qiita.com/advent-calendar/2020/ipfactory)の2日目に記事です。
+いつもはフロントエンドいじったり時々バックエンドもやったりという感じで活動しています。
+
+## HTTPリクエスト飛ばしたい時どうしてます？
+皆さんは自分で作ったサーバーなどにHTTPのリクエストを送ろうと思った時どうしていますか？
+curlでやる人もいれば、HTTPクライアントアプリを起動してやる人などいろいろなやり方があると思います。
+
+私もHTTPリクエストを飛ばす時にcurlやPostmanを使ったりするのですが、いまいち自分に合いません。curlはオプションが多すぎて全然覚えられませんし、PostmanはHTTPリクエスト飛ばすだけのアプリにしては起動が遅かったりなどの不満点がありました。
+
+そこでもう自分でツールを作ってしまおうということになりました。
+
+## 私がツールに求めること
+### CLIツールであること
+私は基本的にターミナルから出たくないのでこれは必須です
+
+### curlを簡単に使えるものがいい
+あくまでもcurlベースのものにした方が、他の人とコマンドを共有できるという利点があります。
+「このコマンド実行してみて？」と人に言った時に独自のコマンドだと相手が困りますよね。
+
+### POSTメソッドのbodyをvimで書きたい
+なんでもvimの中でやりたくなる病気
+
+## できました
+
+こちらが完成品になります(3分クッキング感)
+
+<Iframely html={`<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://github.com/DuGlaser/icurl" data-iframely-url="//cdn.iframe.ly/CVh8RRs"></a></div></div>`}/>
+
+### 使い方
+
+下の動画をみていただくとわかりやすいと思います。  
+
+[![asciicast](https://asciinema.org/a/8v3B8kJoOVE7034OlYAJ82Ebt.svg)](https://asciinema.org/a/8v3B8kJoOVE7034OlYAJ82Ebt)  
+
+基本的にはcurlをベースに、go-promptを使って補完が効くようにしました。  
+
+<Iframely html={`<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://github.com/c-bata/go-prompt" data-iframely-url="//cdn.iframe.ly/d8QKPye?iframe=card-small"></a></div></div>`}/>
+
+### editorオプション
+editorというオプションを独自に追加しました。
+これオプションを使うことでvimなどのエディターでPOSTリクエストをする際のbodyを記述することができるようにしました。
+
+## 最後に
+
+もうアドベントカレンダーの時期になってしまったことに若干の恐怖を覚えつつ、今年の残りも頑張ろうと思います。最後まで読んでいただきありがとうございました。
