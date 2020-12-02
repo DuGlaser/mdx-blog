@@ -16,9 +16,13 @@ const Iframely: React.FC<Props> = (props) => {
     if (window.iframely) {
       window.iframely.load();
     }
-  }, []);
+  }, [window.iframely]);
 
-  return <Embed html={props.html} />;
+  return (
+    <>
+      <Embed html={props.html} />
+    </>
+  );
 };
 
 export default Iframely;
