@@ -48,9 +48,10 @@ const PostPage: NextPage<Props> = (props) => {
   const pageUrl = `/posts/${postName}`;
 
   const date = new Date(frontMatter.pubDate);
-  const day = date.getUTCDate();
-  const month = date.getUTCMonth() + 1;
-  const year = date.getUTCFullYear();
+  const localDate = date.toLocaleDateString();
+  // const day = localDate.getUTCDate();
+  // const month = date.getUTCMonth() + 1;
+  // const year = date.getUTCFullYear();
 
   return (
     <Layout>
@@ -64,7 +65,7 @@ const PostPage: NextPage<Props> = (props) => {
           {frontMatter.title}
         </h1>
         <div className="flex flex-row justify-center m-1 text-sm text-gray-600">
-          {year}/{month}/{day}
+          {localDate}
         </div>
         <div className="flex flex-row justify-center p-1 ">
           {frontMatter.tags.map((tag: string) => (
