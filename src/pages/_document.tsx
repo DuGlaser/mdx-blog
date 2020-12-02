@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <script src="//cdn.iframe.ly/embed.js?iframe=1&omit_script=1"></script>
+          <script src="https://cdn.iframe.ly/embed.js"></script>
         </Head>
         <body className="font-body">
           <Main />
