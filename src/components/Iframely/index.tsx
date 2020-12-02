@@ -15,7 +15,6 @@ const Iframely: React.FC<Props> = (props) => {
   useEffect(() => {
     const id = setInterval(() => {
       if (window.iframely) {
-        console.log('done');
         window.iframely.load();
         clearInterval(id);
       }
