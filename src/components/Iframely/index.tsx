@@ -13,12 +13,19 @@ interface Props {
 
 const Iframely: React.FC<Props> = (props) => {
   useEffect(() => {
-    if (window.iframely) {
-      window.iframely.load();
-    }
+    const id = setInterval(() => {
+      if (window.iframely) {
+        window.iframely.load();
+        clearInterval(id);
+      }
+    }, 300);
   }, []);
 
-  return <Embed html={props.html} />;
+  return (
+    <>
+      <Embed html={props.html} />
+    </>
+  );
 };
 
 export default Iframely;
