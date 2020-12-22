@@ -5,10 +5,11 @@ interface Props {
   path: string;
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const PageSEO: React.FC<Props> = (props) => {
-  const { title, path, description } = props;
+  const { title, path, description, image } = props;
   const pageUrl = `${config.root}${path}`;
 
   return (
@@ -19,6 +20,7 @@ const PageSEO: React.FC<Props> = (props) => {
       <meta property="og:url" content={pageUrl} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:site" content={config.meta.title} />
+      {!!image && <meta property="og:image" content={image} />}
       {!!description && (
         <>
           <meta name="description" content={description} />
