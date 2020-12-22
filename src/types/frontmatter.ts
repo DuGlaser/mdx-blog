@@ -3,4 +3,5 @@ export interface FrontMatter {
   description: string;
   tags: Array<string>;
   pubDate: string;
+  image?: string;
 }

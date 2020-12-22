@@ -61,6 +61,7 @@ const PostPage: NextPage<Props> = (props) => {
         path={pageUrl}
         title={frontMatter.title}
         description={frontMatter.description}
+        image={frontMatter.image}
       />
       <div>
         <h1 className="text-4xl font-black tracking-wide text-center text-gray-900 md:text-5xl">
