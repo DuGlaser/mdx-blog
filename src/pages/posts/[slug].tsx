@@ -7,6 +7,7 @@ import { H1, H2, H3, H4 } from '@/components/Heading';
 import Iframely from '@/components/Iframely';
 import Img from '@/components/Image';
 import Layout from '@/components/Layout';
+import { List } from '@/components/List';
 import PageSEO from '@/components/PageSEO';
 import P from '@/components/Paragraph';
 import Share from '@/components/Share';
@@ -31,6 +32,7 @@ const components = {
   img: Img,
   Img: Img,
   code: Code,
+  li: List,
   Iframely: Iframely,
   Head,
 };
