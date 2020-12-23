@@ -11,9 +11,9 @@ const Layout = ({ children }: any) => {
             </Link>
           </h1>
           <nav className="flex mt-3 md:mt-0">
-            <Link href="/about">
-              <a className="mr-10">ABOUT</a>
-            </Link>
+            <a href="https://github.com/DuGlaser" className="mr-10">
+              GITHUB
+            </a>
             <Link href="/">
               <a>BLOG</a>
             </Link>
